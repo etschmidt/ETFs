@@ -1,0 +1,31 @@
+---
+title: "AAPL"
+author: "Ethan T. Schmidt"
+date: "October 29, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Import Data
+
+```{r}
+library(tidyquant)
+
+getSymbols('AAPL')
+
+from <- today() - years(1)
+IBM <-  tq_get('IBM', get = 'stock.prices', from = from)
+AAPL <- tq_get('AAPL', get = 'stock.prices', from = from)
+
+head(IBM)
+head(AAPL)
+```
+```{r}
+library(ggplot2)
+
+
+```
+
