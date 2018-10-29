@@ -12,20 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Import Data
 
 ```{r}
-library(tidyquant)
+library(quantmod)
+IBM <- getSymbols('IBM', auto.assign = FALSE)
 
-getSymbols('AAPL')
+library(xts)
 
-from <- today() - years(1)
-IBM <-  tq_get('IBM', get = 'stock.prices', from = from)
-AAPL <- tq_get('AAPL', get = 'stock.prices', from = from)
-
-head(IBM)
-head(AAPL)
-```
-```{r}
-library(ggplot2)
-
-
+chartSeries(IBM)
 ```
 
